@@ -1,0 +1,19 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\unrealeditor\\inc\\sjam\\sjamgamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\sjameditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\unrealeditor\\development\\sjam\\definitions.sjam.h",
+            "c:\\ue5projects\\secretjam\\sjam\\source\\sjam\\sjamgamemode.h",
+            "c:\\unreal\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\unreal\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\unreal\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\serverstatreplicator.generated.h",
+            "c:\\unreal\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamemodebase.generated.h",
+            "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\unrealeditor\\inc\\sjam\\sjamgamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

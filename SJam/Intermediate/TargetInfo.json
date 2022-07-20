@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "SJam",
+			"Path": "C:\\UE5projects\\SecretJam\\SJam\\Source\\SJam.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "SJamEditor",
+			"Path": "C:\\UE5projects\\SecretJam\\SJam\\Source\\SJamEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

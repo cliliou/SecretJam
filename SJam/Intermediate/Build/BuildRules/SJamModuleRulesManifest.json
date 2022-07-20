@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\UE5projects\\SecretJam\\SJam\\Source\\SJam\\SJam.Build.cs",
+		"C:\\UE5projects\\SecretJam\\SJam\\Source\\SJam.Target.cs",
+		"C:\\UE5projects\\SecretJam\\SJam\\Source\\SJamEditor.Target.cs"
+	],
+	"EngineVersion": "5.0.3"
+}

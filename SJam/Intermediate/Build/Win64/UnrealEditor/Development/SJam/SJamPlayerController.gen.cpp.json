@@ -1,0 +1,15 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\unrealeditor\\inc\\sjam\\sjamplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\sjameditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\unrealeditor\\development\\sjam\\definitions.sjam.h",
+            "c:\\ue5projects\\secretjam\\sjam\\source\\sjam\\sjamplayercontroller.h",
+            "c:\\ue5projects\\secretjam\\sjam\\intermediate\\build\\win64\\unrealeditor\\inc\\sjam\\sjamplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

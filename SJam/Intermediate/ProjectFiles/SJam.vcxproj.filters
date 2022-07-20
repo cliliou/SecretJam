@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\SJam.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SJam.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\SJamEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\SJam">
+      <UniqueIdentifier>{1207D697-5E0C-39AC-804A-80A23BDFDE4D}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SJam\SJam.Build.cs">
+      <Filter>Source\SJam</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\SJam\SJam.cpp">
+      <Filter>Source\SJam</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SJam\SJam.h">
+      <Filter>Source\SJam</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SJam\SJamCharacter.cpp">
+      <Filter>Source\SJam</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SJam\SJamCharacter.h">
+      <Filter>Source\SJam</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SJam\SJamGameMode.cpp">
+      <Filter>Source\SJam</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SJam\SJamGameMode.h">
+      <Filter>Source\SJam</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SJam\SJamPlayerController.cpp">
+      <Filter>Source\SJam</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SJam\SJamPlayerController.h">
+      <Filter>Source\SJam</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
