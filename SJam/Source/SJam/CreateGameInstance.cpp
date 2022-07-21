@@ -2,6 +2,9 @@
 
 
 #include "CreateGameInstance.h"
+
+#include <string>
+
 #include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 
@@ -21,6 +24,10 @@ void UCreateGameInstance::Init()
 			SessionInterface->OnCreateSessionCompleteDelegates.AddUObject(this, &UCreateGameInstance::OnCreateSessionComplete);
 			SessionInterface->OnFindSessionsCompleteDelegates.AddUObject(this, &UCreateGameInstance::OnFindSessionComplete);
 			SessionInterface->OnJoinSessionCompleteDelegates.AddUObject(this, &UCreateGameInstance::OnJoinSessionComplete);
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("SessionInterface is Invalid"));
 		}
 	}
 }
@@ -78,8 +85,9 @@ void UCreateGameInstance::CreateServer()
 	SessionSettings.bShouldAdvertise = true;
 	SessionSettings.bUsesPresence = true;
 	SessionSettings.NumPublicConnections = 5;
-
-	SessionInterface->CreateSession(0, FName("Create Session"), SessionSettings);
+	int randomNumber = rand();
+	FString serverName = FString::FromInt(randomNumber);
+	SessionInterface->CreateSession(0, FName(*serverName), SessionSettings);
 }
 
 void UCreateGameInstance::JoinServer()
@@ -88,6 +96,6 @@ void UCreateGameInstance::JoinServer()
 	SessionSearch->bIsLanQuery = (IOnlineSubsystem::Get()->GetSubsystemName() == "NULL");
 	SessionSearch->MaxSearchResults = 10000;
 	SessionSearch->QuerySettings.Set("SEARCH_PRESENCE", true, EOnlineComparisonOp::Equals);
-
+	
 	SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
 }
