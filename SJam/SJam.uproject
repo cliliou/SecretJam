@@ -39,6 +39,10 @@
 			"SupportedTargetPlatforms": [
 				"Android"
 			]
+		},
+		{
+			"Name": "Metasound",
+			"Enabled": true
 		}
 	]
 }
