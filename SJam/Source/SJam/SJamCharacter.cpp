@@ -12,6 +12,8 @@
 #include "Engine/World.h"
 #include "Net/UnrealNetwork.h"
 #include "Engine/Engine.h"
+#include "SJamProjectile.h"
+
 
 
 ASJamCharacter::ASJamCharacter()
@@ -52,7 +54,11 @@ ASJamCharacter::ASJamCharacter()
 	MaxHealth = 100.0f;
 	CurrentHealth = MaxHealth;
 
-	
+	//Initialize projectile class
+	ProjectileClass = ASJamProjectile::StaticClass();
+	//Initialize fire rate
+	FireRate = 0.25f;
+	bIsFiringWeapon = false;
 
 	
 }
@@ -119,4 +125,38 @@ float ASJamCharacter::TakeDamage(float DamageTaken, struct FDamageEvent const& D
 	float damageApplied = CurrentHealth - DamageTaken;
 	SetCurrentHealth(damageApplied);
 	return damageApplied;
+}
+
+void ASJamCharacter::StartFire()
+{
+	if (!bIsFiringWeapon)
+	{
+		bIsFiringWeapon = true;
+		UWorld* World = GetWorld();
+		World->GetTimerManager().SetTimer(FiringTimer, this, &ASJamCharacter::StopFire, FireRate, false);
+		HandleFire();
+	}
+}
+
+void ASJamCharacter::StopFire()
+{
+	bIsFiringWeapon = false;
+}
+
+void ASJamCharacter::HandleFire_Implementation()
+{
+	FVector spawnLocation = GetActorLocation() + ( GetControlRotation().Vector()  * 100.0f ) + (GetActorUpVector() * 50.0f);
+	FRotator spawnRotation = GetControlRotation();
+
+	FActorSpawnParameters spawnParameters;
+	spawnParameters.Instigator = GetInstigator();
+	spawnParameters.Owner = this;
+
+	ASJamProjectile* spawnedProjectile = GetWorld()->SpawnActor<ASJamProjectile>(spawnLocation, spawnRotation, spawnParameters);
+}
+
+void ASJamCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+{
+	// Handle firing projectiles
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ASJamCharacter::StartFire);
 }
