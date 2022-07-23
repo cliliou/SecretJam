@@ -69,6 +69,25 @@ void ASJamCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	DOREPLIFETIME(ASJamCharacter, CurrentHealth);
 }
 
+void ASJamCharacter::SetCurrentHealth(float healthValue)
+{
+	if (GetLocalRole() == ROLE_Authority)
+	{
+		CurrentHealth = FMath::Clamp(healthValue, 0.f, MaxHealth);
+		OnHealthUpdate();
+	}
+}
+
+float ASJamCharacter::TakeDamage(float DamageTaken, FDamageEvent const& DamageEvent, AController* EventInstigator,
+	AActor* DamageCauser)
+{
+	//return Super::TakeDamage(DamageTaken, DamageEvent, EventInstigator, DamageCauser);
+
+	float damageApplied = CurrentHealth - DamageTaken;
+	SetCurrentHealth(damageApplied);
+	return damageApplied;
+}
+
 void ASJamCharacter::OnRep_CurrentHealth()
 {
 	OnHealthUpdate();
