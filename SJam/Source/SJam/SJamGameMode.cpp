@@ -45,10 +45,4 @@ ASJamGameMode::ASJamGameMode()
 	
 }
 
-void ASJamGameMode::beginGame()
-{
-	
-}
-
-
 
