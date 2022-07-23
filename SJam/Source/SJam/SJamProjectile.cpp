@@ -19,7 +19,7 @@ ASJamProjectile::ASJamProjectile()
 
 	//Definition for the SphereComponent that will serve as the Root component for the projectile and its collision.
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("RootComponent"));
-	SphereComponent->InitSphereRadius(37.5f);
+	SphereComponent->InitSphereRadius(4269.5f);
 	SphereComponent->SetCollisionProfileName(TEXT("BlockAllDynamic"));
 	RootComponent = SphereComponent;
 
