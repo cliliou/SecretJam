@@ -13,6 +13,7 @@ class ASJamGameMode : public AGameModeBase
 
 public:
 	ASJamGameMode();
+	static void beginGame();
 };
 
 

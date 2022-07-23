@@ -12,6 +12,7 @@ ASJamPlayerController::ASJamPlayerController()
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
+	isPlayerTurn = false;
 }
 
 void ASJamPlayerController::PlayerTick(float DeltaTime)

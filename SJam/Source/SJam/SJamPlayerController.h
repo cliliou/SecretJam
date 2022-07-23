@@ -26,6 +26,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
 	UNiagaraSystem* FXCursor;
 
+	UPROPERTY(BlueprintReadWrite, Replicated, Category = PlayerState)
+	bool isPlayerTurn;
+
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */
 	uint32 bMoveToMouseCursor : 1;
@@ -45,6 +48,7 @@ private:
 	bool bInputPressed; // Input is bring pressed
 	bool bIsTouch; // Is it a touch device
 	float FollowTime; // For how long it has been pressed
+	
 };
 
 
