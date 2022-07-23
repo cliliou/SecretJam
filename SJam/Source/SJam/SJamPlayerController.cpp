@@ -12,7 +12,14 @@ ASJamPlayerController::ASJamPlayerController()
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
-	isPlayerTurn = false;
+	isPlaying = false;
+	noDoubleClick = true;
+}
+
+void ASJamPlayerController::StopHammerTime()
+{
+	StopMovement();
+	isPlaying = false;
 }
 
 void ASJamPlayerController::PlayerTick(float DeltaTime)
@@ -66,29 +73,36 @@ void ASJamPlayerController::SetupInputComponent()
 
 void ASJamPlayerController::OnSetDestinationPressed()
 {
-	// We flag that the input is being pressed
-	bInputPressed = true;
-	// Just in case the character was moving because of a previous short press we stop it
-	StopMovement();
+	if(isPlaying)
+	{
+		// We flag that the input is being pressed
+		bInputPressed = true;
+		// Just in case the character was moving because of a previous short press we stop it
+		StopMovement();
+	}
 }
 
 void ASJamPlayerController::OnSetDestinationReleased()
 {
-	// Player is no longer pressing the input
-	bInputPressed = false;
-
-	// If it was a short press
-	if(FollowTime <= ShortPressThreshold)
+	if(isPlaying)
 	{
-		// We look for the location in the world where the player has pressed the input
-		FVector HitLocation = FVector::ZeroVector;
-		FHitResult Hit;
-		GetHitResultUnderCursor(ECC_Visibility, true, Hit);
-		HitLocation = Hit.Location;
+		// Player is no longer pressing the input
+		bInputPressed = false;
 
-		// We move there and spawn some particles
-		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, HitLocation);
-		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, FXCursor, HitLocation, FRotator::ZeroRotator, FVector(1.f, 1.f, 1.f), true, true, ENCPoolMethod::None, true);
+		// If it was a short press
+		if(FollowTime <= ShortPressThreshold)
+		{
+			// We look for the location in the world where the player has pressed the input
+			FVector HitLocation = FVector::ZeroVector;
+			FHitResult Hit;
+			GetHitResultUnderCursor(ECC_Visibility, true, Hit);
+			HitLocation = Hit.Location;
+
+			// We move there and spawn some particles
+			UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, HitLocation);
+			UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, FXCursor, HitLocation, FRotator::ZeroRotator, FVector(1.f, 1.f, 1.f), true, true, ENCPoolMethod::None, true);
+		}
+		isPlaying = false;
 	}
 }
 

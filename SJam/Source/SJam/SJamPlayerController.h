@@ -27,7 +27,9 @@ public:
 	UNiagaraSystem* FXCursor;
 
 	UPROPERTY(BlueprintReadWrite, Replicated, Category = PlayerState)
-	bool isPlayerTurn;
+	bool isPlaying;
+	bool noDoubleClick;
+	void StopHammerTime();
 
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */
